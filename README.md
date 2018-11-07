@@ -1,2 +1,2 @@
 # Limits
-A tiny dream of being an indie-dev.
+Dreams of being an indie-dev. Project in Godot.
