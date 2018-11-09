@@ -1,0 +1,170 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Places/Your_room.gd" type="Script" id=1]
+[ext_resource path="res://Assets/your_room.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Avatar.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.6178, 1 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15, 24 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 60.8636 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1, 49 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.2267, 1 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9.94118, 10 )
+
+[node name="Your_room" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Avatar" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 62, 57 )
+
+[node name="Up_wall" type="StaticBody2D" parent="." index="2"]
+
+position = Vector2( 38, 69 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up_wall" index="0"]
+
+position = Vector2( 58.0192, -15 )
+scale = Vector2( 6.97758, 1 )
+shape = SubResource( 2 )
+
+[node name="Bed" type="StaticBody2D" parent="." index="3"]
+
+position = Vector2( 38, 69 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Left_wall" type="StaticBody2D" parent="." index="4"]
+
+position = Vector2( 38, 69 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_wall" index="0"]
+
+position = Vector2( -16.8131, 53.6408 )
+scale = Vector2( 0.0912995, 1.13744 )
+shape = SubResource( 3 )
+
+[node name="Right_wall" type="StaticBody2D" parent="." index="5"]
+
+position = Vector2( 62, 57 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_wall" index="0"]
+
+position = Vector2( 108, 56 )
+scale = Vector2( 1, 1.17308 )
+shape = SubResource( 4 )
+
+[node name="Down_wall" type="StaticBody2D" parent="." index="6"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down_wall" index="0"]
+
+position = Vector2( 111, 171 )
+scale = Vector2( 5.76923, 1 )
+shape = SubResource( 5 )
+
+[node name="Tiny_by_door_wall" type="StaticBody2D" parent="." index="7"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiny_by_door_wall" index="0"]
+
+position = Vector2( 53, 182 )
+shape = SubResource( 6 )
+
+[node name="Table" type="StaticBody2D" parent="." index="8"]
+
+position = Vector2( 53, 182 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table" index="0"]
+
+position = Vector2( 88.5769, -115.5 )
+scale = Vector2( 2.65996, 2.03846 )
+shape = SubResource( 7 )
+
+

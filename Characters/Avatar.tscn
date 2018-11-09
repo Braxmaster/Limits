@@ -9,9 +9,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 16 )
+extents = Vector2( 7, 2 )
 
-[node name="Avatar" type="KinematicBody2D" index="0"]
+[node name="Avatar" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -24,7 +24,6 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 3
-frame = 4
 region_rect = Rect2( 0, 0, 20, 32 )
 _sections_unfolded = [ "Animation", "Offset", "Region" ]
 
@@ -43,7 +42,8 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
+position = Vector2( 5.96046e-008, 14 )
+scale = Vector2( 1.1, 1 )
 shape = SubResource( 1 )
 
 
