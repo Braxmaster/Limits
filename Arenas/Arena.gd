@@ -1,13 +1,14 @@
 extends Node2D
 #using a python naming scheme, since GDscript is a bit like python
-var battle_positions_left
-var battle_positions_right
+export var battle_positions_left = [Vector2(30, 140), Vector2(60, 170)]
+export var battle_positions_right = [Vector2(170, 140), Vector2(140, 170)]
+
+
 
 func _ready():
 	#Put background in the background
 	#Testing
-	battle_positions_left = [Vector2(30, 140), Vector2(60, 170)]
-	battle_positions_right = [Vector2(170, 140), Vector2(140, 170)]
+	
 	
 	var dummy_character_scene = load("res://Arenas/Dummy_Character.tscn")
 	var dummy_character1 = dummy_character_scene.instance()
