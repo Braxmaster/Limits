@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Arenas/Arena.gd" type="Script" id=1]
 [ext_resource path="res://Arenas/backgrounds/nice_day_grass_test.png" type="Texture" id=2]
+[ext_resource path="res://Arenas/Panel_holder.gd" type="Script" id=3]
+[ext_resource path="res://Arenas/Font/MODENINE.TTF" type="DynamicFontData" id=4]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="DynamicFont" id=1]
 
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+size = 150
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+fallback/0 = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Arena" type="Node2D" index="0"]
 
@@ -18,10 +20,58 @@ script = ExtResource( 1 )
 battle_positions_left = [ Vector2( 30, 140 ), Vector2( 60, 170 ) ]
 battle_positions_right = [ Vector2( 170, 140 ), Vector2( 140, 170 ) ]
 
-[node name="Background" type="AnimatedSprite" parent="." index="0"]
+[node name="Background" type="Sprite" parent="." index="0"]
 
-frames = SubResource( 1 )
-animation = "default"
+texture = ExtResource( 2 )
 centered = false
+_sections_unfolded = [ "Animation", "Region", "Transform", "Z Index" ]
+
+[node name="Panel_holder" type="Node2D" parent="." index="1"]
+
+script = ExtResource( 3 )
+
+[node name="Text_panel" type="Panel" parent="Panel_holder" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 192.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect", "Size Flags", "Visibility" ]
+
+[node name="Panel_text" type="RichTextLabel" parent="Panel_holder/Text_panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 192.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = SubResource( 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "This is default text. It has appeared because some developer forgot to set the text properly."
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
 
 

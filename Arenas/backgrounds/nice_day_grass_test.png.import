@@ -10,7 +10,7 @@ source_file="res://Arenas/backgrounds/nice_day_grass_test.png"
 source_md5="0f6f2b250da5dea8e13cdec3ef85e040"
 
 dest_files=[ "res://.import/nice_day_grass_test.png-448e88ce4173a4dd3bb5eaeb3c9a5284.stex" ]
-dest_md5="265802819dba8d794fcc935765a52420"
+dest_md5="7292a78b1b2463e24548db49e863bfa5"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
