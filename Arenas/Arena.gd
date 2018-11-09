@@ -21,7 +21,15 @@ func place_battle_positions_left(characters_array):
 		print("Too many characters in this array for the arena")
 	
 	for i in range(0, number_of_characters):
-		pass
+		characters_array[i].pos = battle_positions_left[i]
+		characters_array[i]._draw()
 	
 func place_battle_positions_right(characters_array):
-	pass
+	number_of_characters = characters_array.size()
+	#Should raise an error but this will have to do
+	if(number_of_characters < battle_positions_left.size()):
+		print("Too many characters in this array for the arena")
+	
+	for i in range(0, number_of_characters):
+		characters_array[i].pos = battle_positions_right[i]
+		characters_array[i]._draw()
