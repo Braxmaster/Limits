@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-const SPEED = 100
+const SPEED = 60
 var movedir = Vector2(0, 0)
 var target
+var facedir = Vector2(-1, 0)
 var can_move = true
 var in_event = false
 
@@ -29,6 +30,28 @@ func controls_loop():
 
 func movement_loop():
 	var motion = movedir.normalized() * SPEED
+	if movedir.x > 0:
+		$Sprite/AnimationPlayer.set_current_animation("run_side")
+		$Sprite.flip_h = false
+		facedir = movedir
+	elif movedir.x < 0:
+		$Sprite/AnimationPlayer.set_current_animation("run_side")
+		$Sprite.flip_h = true
+		facedir = movedir
+	elif movedir.y > 0:
+		$Sprite/AnimationPlayer.set_current_animation("run_down")
+		facedir = movedir
+	elif movedir.y < 0:
+		$Sprite/AnimationPlayer.set_current_animation("run_back")
+		facedir = movedir
+	elif movedir.x == 0 and movedir.y == 0:
+		$Sprite/AnimationPlayer.stop()
+		if facedir.y > 0:
+			$Sprite.frame = 0
+		if facedir.y < 0:
+			$Sprite.frame = 6
+		if facedir.y == 0:
+			$Sprite.frame = 3
 	move_and_slide(motion, Vector2(0, 0))
 	
 func interact(e):
