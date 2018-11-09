@@ -2,6 +2,7 @@ extends Node2D
 var currentpanel
 
 func _ready():
+	
 	pass
 
 func set_text(text):

@@ -3,16 +3,36 @@
 [ext_resource path="res://Arenas/Arena.gd" type="Script" id=1]
 [ext_resource path="res://Arenas/backgrounds/nice_day_grass_test.png" type="Texture" id=2]
 [ext_resource path="res://Arenas/Panel_holder.gd" type="Script" id=3]
-[ext_resource path="res://Arenas/Font/MODENINE.TTF" type="DynamicFontData" id=4]
+[ext_resource path="res://Arenas/Font/smallfont.fnt" type="BitmapFont" id=4]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="StyleBoxFlat" id=1]
 
-size = 150
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 4 )
-fallback/0 = ExtResource( 4 )
-_sections_unfolded = [ "Font", "Settings" ]
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0, 0, 0, 1 )
+draw_center = true
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Border Width" ]
 
 [node name="Arena" type="Node2D" index="0"]
 
@@ -37,14 +57,15 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 192.0
-margin_bottom = 40.0
+margin_bottom = 60.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect", "Size Flags", "Visibility" ]
+custom_styles/panel = SubResource( 1 )
+_sections_unfolded = [ "Margin", "Size Flags", "Theme", "Visibility", "custom_styles" ]
 
 [node name="Panel_text" type="RichTextLabel" parent="Panel_holder/Text_panel" index="0"]
 
@@ -52,26 +73,28 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 3.0
 margin_right = 192.0
-margin_bottom = 40.0
+margin_bottom = 60.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "This is default text. It has appeared because some developer forgot to set the text properly."
-scroll_active = false
+text = "This panel has has a hardcoded size. That's pretty bad"
+scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Rect", "Size Flags", "custom_fonts" ]
 
 

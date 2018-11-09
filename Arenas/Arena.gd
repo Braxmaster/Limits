@@ -8,11 +8,12 @@ export var battle_positions_right = [Vector2(170, 140), Vector2(140, 170)]
 func _ready():
 	#load some testing characters
 	var dummy_character_scene = load("res://Arenas/Dummy_Character.tscn")
+	var avatar = load("res://Characters/Avatar.tscn")
 	var dummy_character1 = dummy_character_scene.instance()
 	var dummy_character2 = dummy_character_scene.instance()
 	dummy_character1.set_name("Dummy1")
 	dummy_character2.set_name("Dummy2")
-	place_battle_positions_left([dummy_character1, dummy_character2])
+	place_battle_positions_left([avatar, dummy_character2])
 	
 	var dummy_character3 = dummy_character_scene.instance()
 	var dummy_character4 = dummy_character_scene.instance()
@@ -21,7 +22,7 @@ func _ready():
 	place_battle_positions_right([dummy_character3, dummy_character4])
 	$Panel_holder.set_text("Uh oh, " + 
 	build_enemy_string_names([dummy_character3, dummy_character4]) + 
-	"are looking for trouble! "
+	" are looking for trouble! "
 	)
 	
 
