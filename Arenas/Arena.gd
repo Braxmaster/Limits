@@ -8,7 +8,8 @@ export var battle_positions_right = [Vector2(170, 140), Vector2(140, 170)]
 func _ready():
 	#load some testing characters
 	var dummy_character_scene = load("res://Arenas/Dummy_Character.tscn")
-	var avatar = load("res://Characters/Avatar.tscn")
+	var avatar_scene = load("res://Characters/Avatar.tscn")
+	var avatar = avatar_scene.instance()
 	var dummy_character1 = dummy_character_scene.instance()
 	var dummy_character2 = dummy_character_scene.instance()
 	dummy_character1.set_name("Dummy1")
