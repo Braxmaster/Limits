@@ -26,6 +26,14 @@ func _ready():
 	" are looking for trouble! "
 	)
 	
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		select()
+
+func select():
+	if $Panel_holder.currentpanel.name == "Panel_text" :
+		$Panel_holder.show_menu(["test_attack_1", "test_attack2"])
+		print("enter")
 
 #Set background to sprite frames, background is animatedsprite since animated backgrounds would be cool
 func set_background(sprite_frames):
