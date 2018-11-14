@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Arenas/Arena.gd" type="Script" id=1]
 [ext_resource path="res://Arenas/backgrounds/nice_day_grass_test.png" type="Texture" id=2]
 [ext_resource path="res://Arenas/Panel_holder.gd" type="Script" id=3]
-[ext_resource path="res://Arenas/Font/smallfont.tres" type="BitmapFont" id=4]
+[ext_resource path="res://Arenas/res_images/selection_arrow.png" type="Texture" id=4]
+[ext_resource path="res://Arenas/Font/smallfont.tres" type="BitmapFont" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -94,7 +95,14 @@ custom_styles/panelnc = SubResource( 2 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Size Flags", "Theme", "Transform", "custom_styles" ]
 
-[node name="Panel_text" type="RichTextLabel" parent="Panel_holder" index="0"]
+[node name="Selection_arrow" type="Sprite" parent="Panel_holder" index="0"]
+
+position = Vector2( 3, 11 )
+texture = ExtResource( 4 )
+centered = false
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="Panel_text" type="RichTextLabel" parent="Panel_holder" index="1"]
 
 visible = false
 anchor_left = 0.0
@@ -111,7 +119,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -125,7 +133,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Margin", "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="Verticalmenu" type="VBoxContainer" parent="Panel_holder" index="1"]
+[node name="Verticalmenu" type="VBoxContainer" parent="Panel_holder" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -146,11 +154,12 @@ _sections_unfolded = [ "Margin", "Size Flags" ]
 
 [node name="row1" type="HBoxContainer" parent="Panel_holder/Verticalmenu" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 230.0
+margin_right = 178.0
 margin_bottom = 10.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -158,8 +167,9 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_constants/separation = 30
 alignment = 0
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Option" type="Label" parent="Panel_holder/Verticalmenu/row1" index="0"]
 
@@ -175,12 +185,12 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "test"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Margin", "custom_fonts" ]
 
 [node name="Option2" type="Label" parent="Panel_holder/Verticalmenu/row1" index="1"]
 
@@ -188,8 +198,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 18.0
-margin_right = 32.0
+margin_left = 44.0
+margin_right = 58.0
 margin_bottom = 10.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -197,7 +207,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "test"
 percent_visible = 1.0
 lines_skipped = 0
@@ -210,8 +220,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 36.0
-margin_right = 50.0
+margin_left = 88.0
+margin_right = 102.0
 margin_bottom = 10.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -219,7 +229,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "test"
 percent_visible = 1.0
 lines_skipped = 0
@@ -234,7 +244,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 14.0
-margin_right = 230.0
+margin_right = 178.0
 margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -242,8 +252,9 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_constants/separation = 30
 alignment = 0
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Option4" type="Label" parent="Panel_holder/Verticalmenu/row2" index="0"]
 
@@ -259,7 +270,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "test"
 percent_visible = 1.0
 lines_skipped = 0
@@ -272,8 +283,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 18.0
-margin_right = 32.0
+margin_left = 44.0
+margin_right = 58.0
 margin_bottom = 10.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -281,7 +292,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "test"
 percent_visible = 1.0
 lines_skipped = 0
@@ -294,8 +305,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 36.0
-margin_right = 50.0
+margin_left = 88.0
+margin_right = 102.0
 margin_bottom = 10.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -303,7 +314,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "test"
 percent_visible = 1.0
 lines_skipped = 0
@@ -318,7 +329,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 28.0
-margin_right = 230.0
+margin_right = 178.0
 margin_bottom = 38.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -326,8 +337,9 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_constants/separation = 30
 alignment = 0
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Option7" type="Label" parent="Panel_holder/Verticalmenu/row3" index="0"]
 
@@ -343,7 +355,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "test"
 percent_visible = 1.0
 lines_skipped = 0
@@ -356,8 +368,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 18.0
-margin_right = 32.0
+margin_left = 44.0
+margin_right = 58.0
 margin_bottom = 10.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -365,7 +377,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "test"
 percent_visible = 1.0
 lines_skipped = 0
@@ -378,8 +390,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 36.0
-margin_right = 50.0
+margin_left = 88.0
+margin_right = 102.0
 margin_bottom = 10.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -387,7 +399,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "test"
 percent_visible = 1.0
 lines_skipped = 0

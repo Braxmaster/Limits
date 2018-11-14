@@ -7,10 +7,10 @@ path="res://.import/selection_arrow.png-4e1ff7e23dab6ce266b1517e24792501.stex"
 [deps]
 
 source_file="res://Arenas/res_images/selection_arrow.png"
-source_md5="bf9ab5ce2aff5d4036c288b0748e39b1"
+source_md5="4e50463d90cb82528383f03fcc2ee8ac"
 
 dest_files=[ "res://.import/selection_arrow.png-4e1ff7e23dab6ce266b1517e24792501.stex" ]
-dest_md5="87a7707dbfb28ff90eafd835a57f438f"
+dest_md5="7ec0049a52fb2c77ee8cb8e7816a2004"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

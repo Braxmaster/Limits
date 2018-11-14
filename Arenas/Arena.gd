@@ -14,7 +14,7 @@ func _ready():
 	var dummy_character2 = dummy_character_scene.instance()
 	dummy_character1.set_name("Dummy1")
 	dummy_character2.set_name("Dummy2")
-	place_battle_positions_left([avatar, dummy_character2])
+	place_battle_positions_left([avatar])
 	
 	var dummy_character3 = dummy_character_scene.instance()
 	var dummy_character4 = dummy_character_scene.instance()
@@ -29,6 +29,14 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		select()
+	if event.is_action("ui_up"):
+		$Panel_holder.move_cursor("up")
+	elif event.is_action("ui_down"):
+		$Panel_holder.move_cursor("down")
+	elif event.is_action("ui_right"):
+		$Panel_holder.move_cursor("right")
+	elif event.is_action("ui_left"):
+		$Panel_holder.move_cursor("left")
 
 func select():
 	if $Panel_holder.currentpanel.name == "Panel_text" :
