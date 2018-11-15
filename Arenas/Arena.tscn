@@ -69,6 +69,7 @@ _sections_unfolded = [ "Border Width" ]
 script = ExtResource( 1 )
 battle_positions_left = [ Vector2( 30, 140 ), Vector2( 60, 170 ) ]
 battle_positions_right = [ Vector2( 170, 140 ), Vector2( 140, 170 ) ]
+arrow_positions_right = [ Vector2( 150, 140 ), Vector2( 120, 170 ) ]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
@@ -97,7 +98,7 @@ _sections_unfolded = [ "Rect", "Size Flags", "Theme", "Transform", "custom_style
 
 [node name="Selection_arrow" type="Sprite" parent="Panel_holder" index="0"]
 
-position = Vector2( 79, 39 )
+position = Vector2( 100, 140 )
 texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
