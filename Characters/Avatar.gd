@@ -8,7 +8,7 @@ var can_move = true
 var in_event = false
 
 func _ready():
-	pass
+	$Camera2D.make_current()
 
 func _physics_process(delta):
 	controls_loop()
@@ -25,7 +25,7 @@ func controls_loop():
 	movedir.x = -int(LEFT) + int(RIGHT)
 	movedir.y = -int(UP) + int(DOWN)
 	
-	if INTERACT:
+	if INTERACT and in_event == false:
 		interact(target)
 
 func movement_loop():
@@ -55,14 +55,20 @@ func movement_loop():
 	move_and_slide(motion, Vector2(0, 0))
 	
 func interact(e):
-	pass
+	if target:
+		print("You are interacting with " + target.name)
+		can_move = false
+		in_event = true
+		target.do()
+	else:
+		print("No target to interact with!")
+		in_event = false
 
 func _on_area2D_body_enter(body, obj):
-	if body.name == "Player_kinematic":
+	if body.name == "Avatar":
 		target = obj
-		in_event = true
+		print("Target is " + target.name)
 
 func _on_area2D_body_exit(body, obj):
-	if body.name == "Player_kinematic":
+	if body.name == "Avatar":
 		target = null
-		in_event = false

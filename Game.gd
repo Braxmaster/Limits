@@ -1,5 +1,5 @@
 extends Node
 
 func _ready():
-	$Scene_loader.change_scene("res://Places/Your_room.tscn")
+	$Scene_loader.add_scene("res://Places/Your_room_scene_1.tscn")
 	
