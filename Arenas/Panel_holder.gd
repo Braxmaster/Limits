@@ -101,7 +101,9 @@ func move_monster_arrow(direction):
 	
 func attack_currently_selected_monster():
 	$Selection_arrow.hide()
-	get_parent().enemy_is_attacked(button_array[currently_selected_option].text, currently_selected_monster, 20)
+	#Need to remove potential whitespaces at the end
+	var attacktext = button_array[currently_selected_option].text.strip_edges(false, true)
+	get_parent().enemy_is_attacked(attacktext, currently_selected_monster, 20)
 	monster_select = false
 
 func move_cursor(direction):
