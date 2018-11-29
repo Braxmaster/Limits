@@ -12,7 +12,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Dialogue" type="Node2D" index="0"]
+[node name="Dialogue" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -54,7 +54,7 @@ _sections_unfolded = [ "BBCode", "Focus", "Hint", "Material", "Mouse", "Pause", 
 [node name="Timer" type="Timer" parent="Talker" index="1"]
 
 process_mode = 1
-wait_time = 0.1
+wait_time = 0.05
 one_shot = false
 autostart = false
 _sections_unfolded = [ "Pause" ]

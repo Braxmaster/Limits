@@ -25,7 +25,7 @@ func controls_loop():
 	movedir.x = -int(LEFT) + int(RIGHT)
 	movedir.y = -int(UP) + int(DOWN)
 	
-	if INTERACT and in_event == false:
+	if INTERACT:
 		interact(target)
 
 func movement_loop():
@@ -56,10 +56,13 @@ func movement_loop():
 	
 func interact(e):
 	if target:
-		print("You are interacting with " + target.name)
-		can_move = false
-		in_event = true
-		target.do()
+		if in_event == false:
+			print("You are interacting with " + target.name)
+			can_move = false
+			in_event = true
+			target.do()
+		else:
+			target.trigger()
 	else:
 		print("No target to interact with!")
 		in_event = false

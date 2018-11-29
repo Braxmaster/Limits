@@ -13,3 +13,6 @@ func do():
 	var diag_system = diag_system_res.instance()
 	get_node("../UI").add_child(diag_system)
 	get_node("../UI/Dialogue/Talker").talk(voice)
+
+func trigger():
+	get_node("../UI/Dialogue/Talker").next_page()

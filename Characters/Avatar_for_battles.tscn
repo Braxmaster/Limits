@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/limits_char.png" type="Texture" id=1]
+
+[node name="Avatar_for_battles" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 3
+_sections_unfolded = [ "Animation" ]
+
+
