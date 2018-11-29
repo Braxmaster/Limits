@@ -16,7 +16,7 @@ var has_won = false
 func _ready():
 	#load some testing characters
 	var dummy_character_scene = load("res://Arenas/Dummy_Character.tscn")
-	var avatar_scene = load("res://Characters/Avatar.tscn")
+	var avatar_scene = load("res://Characters/Avatar_for_battles.tscn")
 	var avatar = avatar_scene.instance()
 	var dummy_character1 = dummy_character_scene.instance()
 	var dummy_character2 = dummy_character_scene.instance()
