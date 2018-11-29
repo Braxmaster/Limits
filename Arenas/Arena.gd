@@ -7,7 +7,10 @@ export var arrow_positions_right = [Vector2(150, 140), Vector2(120, 170)]
 
 var combatatants_left
 var combatants_right
+var is_player_turn = true
+var current_monster_index =0
 
+var has_won = false 
 
 
 func _ready():
@@ -34,6 +37,10 @@ func _ready():
 	)
 	
 	$Panel_holder.set_moster_arrow_positions(arrow_positions_right)
+
+func _process(delta):
+	pass
+
 	
 func _input(event):
 	if !event.is_echo():
@@ -56,10 +63,19 @@ func _input(event):
 			
 
 func select():
-	if $Panel_holder.currentpanel.name == "Panel_text" :
-		$Panel_holder.show_menu(["test_attack_1", "test_attack2aaaaaaaaaaaaa"])
-	elif $Panel_holder.currentpanel.name == "Menu" :
-		$Panel_holder.select()
+	print("Select pressed")
+	if has_won:
+		exit_battle()
+	else:
+		if not is_player_turn:
+			print("monster  select")
+			monster_turn()
+		elif $Panel_holder.currentpanel.name == "Panel_text" :
+			$Panel_holder.show_menu(["test_attack_1", "test_attack2aaaaaaaaaaaaa"])
+		elif $Panel_holder.currentpanel.name == "Menu" :
+			$Panel_holder.select()
+		else:
+			$Panel_holder.select()
 
 #Set background to sprite frames, background is animatedsprite since animated backgrounds would be cool
 func set_background(sprite_frames):
@@ -92,10 +108,51 @@ func build_enemy_string_names(enemy_array):
 	for i in range(0, enemy_array.size()):
 		if not i == enemy_array.size() -1:
 			enemy_string = enemy_string + enemy_array[i].get_name() + ", "
-		else:
 			enemy_string = enemy_string + "and " + enemy_array[i].get_name()
 	return enemy_string
 	
 func enemy_is_attacked(attack, enemy_index, damage_amount):
 	$Panel_holder.set_text("You threw out a mighty "+ attack +" at " + combatants_right[enemy_index].name)
 	print(combatants_right[enemy_index].name + " takes " + str(damage_amount) + "damage!")
+	combatants_right[enemy_index].take_damage(damage_amount)
+	print(combatants_right[enemy_index].name + " has " + str(combatants_right[enemy_index].current_HP) + " HP left")
+	remove_dead_monsters()
+	print("enemy size " + str(combatants_right.empty()))
+	if combatants_right.empty():
+		print("win??")
+		player_wins()
+		is_player_turn = true
+	else: 
+		is_player_turn = false
+	
+	print("is_player_turn " + str(is_player_turn))
+
+func remove_dead_monsters():
+		for monster in combatants_right:
+			if monster.is_dead:
+				remove_child(monster)
+				var index = combatants_right.find(monster)
+				combatants_right.erase(monster)			
+				$Panel_holder.monster_arrow_positions.erase(arrow_positions_right[index])
+				$Panel_holder.currently_selected_monster = 0
+
+func monster_turn():
+	combatants_right[current_monster_index].perform_attack()
+	current_monster_index += 1
+	is_player_turn = current_monster_index > combatants_right.size() - 1
+	if is_player_turn:
+		current_monster_index = 0
+	
+	
+func enemy_attacks(monster_name, attack_name, attack_damage):
+	$Panel_holder.set_text(monster_name + " performs a " + attack_name + " and you take " + str(attack_damage) + "damage!")
+	
+func player_wins():
+	$Panel_holder.set_text("Congratulations you win!")
+	has_won = true
+	
+func player_loses():
+	$Panel_holder.set_text("Congratulations you lose!")
+	
+func exit_battle():
+	print("Exit the battle")

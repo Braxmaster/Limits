@@ -39,13 +39,13 @@ func _ready():
 
 func set_text(text):
 	#This doesnt seem very elegant but it works
+	monster_select = false
 	if not currentpanel == null:
 		currentpanel.hide()
-	if currentpanel == null or not currentpanel.name == "Panel_text":
-		currentpanel = $Panel_text
-		currentpanel.clear()
-		currentpanel.add_text(text)
-		currentpanel.show()
+	currentpanel = $Panel_text
+	currentpanel.clear()
+	currentpanel.add_text(text)
+	currentpanel.show()
 		
 func show_menu(button_string_array):
 	if not currentpanel == null:
