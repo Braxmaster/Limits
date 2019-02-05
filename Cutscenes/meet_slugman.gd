@@ -1,6 +1,6 @@
 extends Node2D
 var avatar 
-var slugspeech = ["Grettings fellow traveller! Let me just test out how far this box can stretch! AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+var slugspeech = ["Greetings fellow traveller! Let me just test out how far this box can stretch! AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 , "So thats how long, pretty cool, how many characters do you think that was?"]
 
 func _ready():
@@ -13,10 +13,12 @@ func _process(delta):
 	avatar.in_event = true
 	avatar.movement_loop()
 
+#TODO: timer seemse to interfere with dialogue timer? Right now is bugged, dialogue not working
+#How to identify: try setting timer value to something different (like 4) and söugman will show more dialogue
 func slugman_enters():
 	var timer = Timer.new()
 	timer.set_wait_time(2)
-	timer.connect("timeout",self,"_stop_slugman_start_talking") 
+	timer.connect("timeout",self,"_stop_slugman_start_talking")
 	add_child(timer)
 	timer.start()
 	$slugman.move_slugman("left")
