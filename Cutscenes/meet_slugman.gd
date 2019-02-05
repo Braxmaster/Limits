@@ -1,13 +1,16 @@
 extends Node2D
 var avatar 
+var slugspeech = ["Grettings fellow traveller! Let me just test out how far this box can stretch! AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+, "So thats how long, pretty cool, how many characters do you think that was?"]
+
 func _ready():
 	avatar = $Your_room_scene_1/Avatar
 	slugman_enters()
-	avatar.movedir.y = 1
 	
 #force avatar to move without player input
+#TODO: fix so player cant control the avatar in the cutscene
 func _process(delta):
-	avatar.can_move = false
+	avatar.in_event = true
 	avatar.movement_loop()
 
 func slugman_enters():
@@ -20,4 +23,6 @@ func slugman_enters():
 	
 func _stop_slugman_start_talking():
 	$slugman.stop_slugman()
-	$slugman.set_slugman_animation_talking() 
+	$slugman.set_slugman_animation_talking()
+	$Dialogue.show() 
+	$Dialogue/Talker.talk(slugspeech)
