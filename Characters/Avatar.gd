@@ -12,19 +12,19 @@ func _ready():
 
 func _physics_process(delta):
 	controls_loop()
-	if can_move:
-		movement_loop()
+	movement_loop()
 
 func controls_loop():
-	var LEFT = Input.is_action_pressed("ui_left")
-	var RIGHT = Input.is_action_pressed("ui_right")
-	var UP = Input.is_action_pressed("ui_up")
-	var DOWN = Input.is_action_pressed("ui_down")
+	if can_move:
+		var LEFT = Input.is_action_pressed("ui_left")
+		var RIGHT = Input.is_action_pressed("ui_right")
+		var UP = Input.is_action_pressed("ui_up")
+		var DOWN = Input.is_action_pressed("ui_down")
+	
+		movedir.x = -int(LEFT) + int(RIGHT)
+		movedir.y = -int(UP) + int(DOWN)
+		
 	var INTERACT = Input.is_action_just_pressed("ui_accept")
-	
-	movedir.x = -int(LEFT) + int(RIGHT)
-	movedir.y = -int(UP) + int(DOWN)
-	
 	if INTERACT:
 		interact(target)
 

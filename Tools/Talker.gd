@@ -34,6 +34,9 @@ func next_page():
 				set_visible_characters(0)
 				page = 0
 				$Timer.stop()
+				#This Shouldn't be here, the dialogue box shouldn't control the character. The parent should.
+				#These types of connections cause side effects
+				#Nodes should never be fetched in relative paths "../../etc", too easy to break
 				get_node("../../../Avatar").can_move = true
 				get_node("../../../Avatar").in_event = false
 				print("Removing node!")

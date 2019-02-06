@@ -5,16 +5,18 @@ var slugspeech = ["Greetings fellow traveller! Let me just test out how far this
 
 func _ready():
 	avatar = $Your_room_scene_1/Avatar
+	#Need player character that can move, but that doesn't control, best choice is separating controls from character.
+	avatar.can_move = false
 	slugman_enters()
 	
-#force avatar to move without player input
-#TODO: fix so player cant control the avatar in the cutscene
+	
 func _process(delta):
-	avatar.in_event = true
-	avatar.movement_loop()
+	move_down_to_slugman()
+	
+func _input(event):
+	if Input.is_action_just_pressed("ui_accept"):
+		$Dialogue/Talker.next_page()
 
-#TODO: timer seemse to interfere with dialogue timer? Right now is bugged, dialogue not working
-#How to identify: try setting timer value to something different (like 4) and söugman will show more dialogue
 func slugman_enters():
 	var timer = Timer.new()
 	timer.set_wait_time(2)
@@ -27,5 +29,14 @@ func slugman_enters():
 func _stop_slugman_start_talking():
 	$slugman.stop_slugman()
 	$slugman.set_slugman_animation_talking()
+	avatar.movedir.y = 0
 	$Dialogue.show() 
 	$Dialogue/Talker.talk(slugspeech)
+
+func move_down_to_slugman():
+	if abs(avatar.position.y - $slugman.position.y) > 10:
+		avatar.movedir.y = 1
+	else:
+		avatar.movedir.y = 0
+		avatar.get_node("Sprite").frame = 3
+	
