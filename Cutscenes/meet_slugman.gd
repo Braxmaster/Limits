@@ -19,6 +19,7 @@ func slugman_enters():
 	var timer = Timer.new()
 	timer.set_wait_time(2)
 	timer.connect("timeout",self,"_stop_slugman_start_talking")
+	timer.one_shot = true
 	add_child(timer)
 	timer.start()
 	$slugman.move_slugman("left")
